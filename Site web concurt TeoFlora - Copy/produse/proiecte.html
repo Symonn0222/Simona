@@ -14,6 +14,58 @@
    
 </head>
 
+<script>
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert("Acest browser nu suportă recunoașterea vocală.");
+  } else {
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'ro-RO';
+    recognition.interimResults = true;
+    recognition.continuous = true;  // Permite recunoașterea continuă
+
+    recognition.onstart = function() {
+      console.log("Recunoașterea vocală a început.");
+    };
+
+    recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript.toLowerCase();
+      console.log("Ai spus: " + transcript);
+
+      // Comenzi vocale
+      if (transcript.includes("scroll sus")) {
+        window.scrollBy(0, -200); // Derulează 200px în sus
+      } else if (transcript.includes("scroll jos")) {
+        window.scrollBy(0, 200); // Derulează 200px în jos
+      } else if (transcript.includes("inapoi")) {
+        window.location.href = "img";
+    }else if (transcript.includes("produse")) {
+          window.location.href = "produse.html";
+        } else if (transcript.includes("proiecte")) {
+          window.location.href = "proiecte.html";
+        } else if (transcript.includes("despre noi")) {
+          window.location.href = "despre.html";
+        };
+  }
+  
+
+    recognition.onerror = function(event) {
+      console.error("Eroare recunoaștere vocală:", event.error);
+    };
+
+    recognition.onend = function() {
+      console.log("Recunoașterea vocală s-a încheiat. Reîncepem...");
+      recognition.start();  // Reîncepe recunoașterea vocală când se oprește
+    };
+
+    // Pornește recunoașterea vocală la încărcarea paginii
+    window.onload = function() {
+      recognition.start();
+    };
+  }
+</script>
+
 <style>
 
 .zoom {
