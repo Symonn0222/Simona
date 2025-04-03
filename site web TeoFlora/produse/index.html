@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeoFlora - Index</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Meniul și conținutul site-ului -->
+  <nav>
+    <a href="index.html"><img src="D:/site web TeoFlora/Homepage/images/logo.png" width="200px;"></a>
+    <a href="produse.html" class="fade-in">Produse</a>
+    <a href="proiecte.html" class="fade-in">Proiecte</a>
+    <a href="despre.html" class="fade-in">Despre noi</a>
+  </nav>
+
+  <h1>TeoFlora - Bine ai venit!</h1>
+
+  <p>Folosește comenzile vocale pentru a interacționa cu site-ul!</p>
+
+  <!-- Script pentru recunoașterea vocală continuă -->
+  <script>
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("Acest browser nu suportă recunoașterea vocală.");
+    } else {
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'ro-RO';
+      recognition.interimResults = true;
+      recognition.continuous = true;  // Permite recunoașterea continuă
+
+      recognition.onstart = function() {
+        console.log("Recunoașterea vocală a început.");
+      };
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript.toLowerCase();
+        console.log("Ai spus: " + transcript);
+
+        // Comenzi vocale
+        if (transcript.includes("scroll sus")) {
+          window.scrollBy(0, -200); // Derulează 200px în sus
+        } else if (transcript.includes("scroll jos")) {
+          window.scrollBy(0, 200); // Derulează 200px în jos
+        } else if (transcript.includes("contact teodora")) {
+          window.location.href = "mailto:teoflora@gmail.com";
+        } else if (transcript.includes("contact alex")) {
+          window.location.href = "mailto:alex@gmail.com";
+        } else if (transcript.includes("contact maria")) {
+          window.location.href = "mailto:maria@gmail.com";
+        }
+      };
+
+      recognition.onerror = function(event) {
+        console.error("Eroare recunoaștere vocală:", event.error);
+      };
+
+      recognition.onend = function() {
+        console.log("Recunoașterea vocală s-a încheiat. Reîncepem...");
+        recognition.start();  // Reîncepe recunoașterea vocală când se oprește
+      };
+
+      // Pornește recunoașterea vocală la încărcarea paginii
+      window.onload = function() {
+        recognition.start();
+      };
+    }
+  </script>
+
+</body>
+</html>
