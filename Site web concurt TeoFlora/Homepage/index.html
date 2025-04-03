@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ro">
+<style>
+    body {
+    font-family: "Poppins";
+    margin: 0;
+    height: 90vh;
+    background-image: url('D:/site web TeoFlora/Homepage/images/bkg-img.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.container{
+    display: flex;
+ 
+}
+.container {
+    display: flex;
+    justify-content: flex-start; 
+    padding: 20px;
+}
+
+
+nav {
+    background-color: rgba(67, 63, 63, 0.225); 
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: auto; 
+}
+
+nav img {
+    margin-right: 20px;
+}
+ul{
+    display: flex;
+}
+li{
+    list-style: none;
+}
+
+nav {
+    margin: 50px 0;
+}
+
+nav a { 
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    margin: 0 6px;
+    border-radius: 5px;
+font-family: Poppins;
+    font-style: normal;
+font-size: 1.2em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #353239;
+    color: white;
+}
+
+footer {
+    background-color: white;
+    color: black;
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    width: 25%;
+box-shadow: 0px -0px 20px black;
+}
+.slide-in {
+      position: relative;
+      opacity: 0;
+      transform: translateY(100%); 
+      animation: slideIn 1.5s ease-out forwards;
+    }
+
+@keyframes slideIn {
+    from {
+      opacity: 0; 
+      transform: translateY(50%); 
+    }
+    to {
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+
+  .fade-in { opacity: 0;   animation: fadeIn 1s ease-in forwards; 
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0; 
+    }
+    to {
+      opacity: 1; 
+    }
+  }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeoFlower</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <img src="D:/site web TeoFlora/Homepage/images/logo.png" width="220px;">
+            <a href="Produse.htm"  class="fade-in">Produse</a>
+            <a href="Contact.htm" class="fade-in">Contact</a>
+	        <a href="despre.htm" class="fade-in" >Despre</a>
+        </nav>
+    </div>
+    <br><br><br><br><br><br>
+
+    <div style="width: 600px; margin-left: 2.5rem;">
+        <h1 style="font-size: 50px; text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.251);" class="slide-in">
+            Discover the elegance of nature with our flowers - Beauty in every petal, joy in every bloom.
+        </h1>
+    </div>
+</body>
+
+</html>
